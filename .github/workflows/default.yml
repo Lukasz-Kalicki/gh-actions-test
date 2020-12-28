@@ -18,9 +18,9 @@ jobs:
             node: 10
           - stage: "dev"
             node: 12
-  steps:
-    - name: Echo stage node
-      env:
-        STAGE: ${{ matrix.stage }}
-        NODE: ${{ matrix.node }}
-      run: echo $STAGE $NODE
+    steps:
+      - name: Echo stage node
+        env:
+          STAGE: ${{ matrix.stage }}
+          NODE: ${{ matrix.node }}
+        run: echo $STAGE $NODE
