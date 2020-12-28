@@ -1,0 +1,26 @@
+name: test-github-action
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build:
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      include:
+        - stage: "prod"
+          node: 10
+        - stage: "dev"
+          node: 12
+  steps:
+    - name: Echo stage node
+      env:
+        STAGE: ${{ matrix.stage }}
+        NODE: ${{ matrix.node }}
+      run: echo $STAGE $NODE
