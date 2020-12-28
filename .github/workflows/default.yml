@@ -11,19 +11,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - stage: "prod"
-            node: 10
-          - stage: "dev"
-            node: 12
     steps:
-      - name: Echo stage node
-        env:
-          STAGE: ${{ matrix.stage }}
-          NODE: ${{ matrix.node }}
-        run: echo $STAGE $NODE
+      - name: Deploy dev
+        if: ${{ github.ref }} == "refs/heads/develop"
+        run: echo "deploy dev"
 
-      - name: Echo github.ref
-        run: echo ${{ github.ref }}
+      - name: Deploy prod
+        if: ${{ github.ref }} == "refs/heads/main"
+        run: echo "deploy prd"
