@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy main
-        run: echo "deploy dev"
+        run: echo "deploy main"
