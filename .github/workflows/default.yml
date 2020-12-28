@@ -20,7 +20,7 @@ jobs:
             node: 12
     steps:
       - name: Echo stage node
-        if: ${{ matrix.stage} == "prod"} 
+        if: ${{ matrix.stage }} == "prod"
         env:
           STAGE: ${{ matrix.stage }}
           NODE: ${{ matrix.node }}
