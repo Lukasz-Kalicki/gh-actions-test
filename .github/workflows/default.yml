@@ -20,14 +20,14 @@ jobs:
             node: 12
     steps:
       - name: Echo stage node
-        if: github.ref == 'refs/head/develop'
+        if: ${{ github.ref == 'refs/head/develop' }}
         env:
           STAGE: ${{ matrix.stage }}
           NODE: ${{ matrix.node }}
         run: echo $STAGE $NODE
 
       - name: Echo stage node 2 
-        if: github.ref == 'refs/head/main'
+        if: ${{ github.ref == 'refs/head/main' }}
         env:
           STAGE: ${{ matrix.stage }}
           NODE: ${{ matrix.node }}
