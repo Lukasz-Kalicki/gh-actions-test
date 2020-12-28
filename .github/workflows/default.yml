@@ -13,10 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [10, 12]
-        stage: ["DEV", "PROD"]
+        include:
+          - stage: "prod"
+            node: 10
+          - stage: "dev"
+            node: 12
     steps:
       - name: Echo stage node
+        if: ${{ matrix.stage} == "prod"} 
         env:
           STAGE: ${{ matrix.stage }}
           NODE: ${{ matrix.node }}
