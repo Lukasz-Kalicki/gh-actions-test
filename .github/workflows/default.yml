@@ -13,11 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - stage: "prod"
-            node: 10
-          - stage: "dev"
-            node: 12
+        node: [10, 12]
+        stage: ["DEV", "PROD"]
     steps:
       - name: Echo stage node
         env:
