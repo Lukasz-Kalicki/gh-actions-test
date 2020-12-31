@@ -16,3 +16,5 @@ jobs:
         run: echo "deploy dev"
       - name: XXXXXX
         run: echo ${{ github.ref }}
+      - name: X222
+        run: echo ${{ github }}
