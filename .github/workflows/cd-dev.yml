@@ -12,3 +12,5 @@ jobs:
     steps:
       - name: Deploy dev
         run: echo "deploy dev"
+      - name: XXXXXX
+        run: echo ${{ github.ref }}
